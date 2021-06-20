@@ -24,7 +24,7 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stay Connected" />
+            android:text="Login Now" />
 
         <TextView
             android:id="@+id/textView2"
@@ -33,10 +33,10 @@
             android:layout_height="wrap_content"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_marginTop="8dp"
-            android:text="Enter your email address and password\n to get access to your account" />
+            android:text="Press Login to continue using app " />
 
         <EditText
-            android:id="@+id/ETEmailAdress"
+            android:id="@+id/ETEmailAdress1"
             android:background="@drawable/edit_text_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/ETPassword"
+            android:id="@+id/ETPassword1"
             android:background="@drawable/edit_text_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,34 +57,23 @@
             android:ems="10"
             android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/ETConfirmPassword"
-            android:background="@drawable/edit_text_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Confirm Password"
-            android:textSize="16sp"
-            android:ems="10"
-            android:inputType="textPassword" />
-
         <Button
-            android:id="@+id/btnsignup"
+            android:id="@+id/btnlogin1"
             android:background="@drawable/btn_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:textColor="@color/colorPrimaryButton"
-            android:text="Sign Up" />
+            android:text="Log In" />
 
-        <TextView
-            android:id="@+id/btnlogin"
-            android:textColor="@color/colorPrimaryText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+       <TextView
+           android:id="@+id/btnsignup1"
+           android:textColor="@color/colorPrimaryText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="24dp"
             android:textAlignment="center"
-            android:text="Don you have an account? Log In"/>
+           android:text="Don't have an account? Signup"/>
     </LinearLayout>
 
 
