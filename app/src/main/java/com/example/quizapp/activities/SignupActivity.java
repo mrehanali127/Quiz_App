@@ -27,7 +27,6 @@ public class SignupActivity extends AppCompatActivity {
     Button btnSignUp;
     TextView login;
     String TAG="Rehan";
-
     // creating object of firebase authentication
     private FirebaseAuth mAuth;
 
@@ -38,13 +37,12 @@ public class SignupActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-
-
         emailaddr=findViewById(R.id.ETEmailAdress);
         pass=findViewById(R.id.ETPassword);
         confirm=findViewById(R.id.ETConfirmPassword);
         btnSignUp=findViewById(R.id.btnsignup);
         login=findViewById(R.id.btnlogin);
+
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +54,6 @@ public class SignupActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent=new Intent(SignupActivity.this, LoginActivity.class);
                 //intent.putExtra("COUNTER",counter);
                 startActivity(intent);
@@ -74,10 +71,10 @@ public class SignupActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             Toast.makeText(SignupActivity.this,"Success",Toast.LENGTH_SHORT).show();
-
         }
     }
 
+    // Main Functionality of SignUp User
     private void SignupUser(){
         String email=emailaddr.getText().toString();
         String password=pass.getText().toString();
@@ -102,10 +99,8 @@ public class SignupActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            //Toast.makeText(SignupActivity.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent=new Intent(SignupActivity.this, MainActivity.class);
-                            //intent.putExtra("COUNTER",counter);
                             startActivity(intent);
                             finish();
                         } else {
@@ -116,8 +111,6 @@ public class SignupActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
 
     }
 }

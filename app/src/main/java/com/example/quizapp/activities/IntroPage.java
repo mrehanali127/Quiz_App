@@ -14,16 +14,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class IntroPage extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
     Button started;
     String TAG="Rehan";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_page);
+        // getting instance of firebase authentication
         mAuth=FirebaseAuth.getInstance();
 
         started=findViewById(R.id.btngetstarted);
+
         started.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +37,7 @@ public class IntroPage extends AppCompatActivity {
         });
 
     }
+
 
     @Override
     public void onStart() {
@@ -45,6 +51,8 @@ public class IntroPage extends AppCompatActivity {
         }
     }
 
+
+    /* Redirect To othter activities according to need */
     public void redirect(String name){
         Intent intent=null;
         if (name=="MAIN") {
@@ -56,11 +64,10 @@ public class IntroPage extends AppCompatActivity {
         else{
             Log.i(TAG,"No Path Exists");
         }
+        // starting that activity
         startActivity(intent);
         finish();
     }
-
-
 
 
 }

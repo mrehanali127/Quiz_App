@@ -12,10 +12,16 @@ import java.util.Map;
 public class Quiz {
     public String id;
     public String title;
-    Map<String, Question> questions = Map.of();
+    public Map<String, Question> questions=Map.of();
+    //Map<String, Question> questions = Map.of();
 
     public Quiz(String id, String title) {
         this.id = id;
         this.title = title;
     }
+
+    public Quiz(){
+
+    }
+
 }

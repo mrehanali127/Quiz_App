@@ -38,11 +38,13 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
+        // finding elements by their ID
         emailaddr=findViewById(R.id.ETEmailAdress1);
         pass=findViewById(R.id.ETPassword1);
         btnsignin=findViewById(R.id.btnlogin1);
         signup=findViewById(R.id.btnsignup1);
 
+        // Listener when user wants to sign in
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        // Listener when user wants to Sign up
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    // Sign In Main Functionality
     private void SignIn(){
         String email=emailaddr.getText().toString();
         String password=pass.getText().toString();
@@ -72,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }
-        Log.i(TAG,"check1");
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
@@ -82,10 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
-                            //Toast.makeText(LoginActivity.this, "Signed In Successfully",Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent=new Intent(LoginActivity.this, MainActivity.class);
-                            //intent.putExtra("COUNTER",counter);
                             startActivity(intent);
                             finish();
 
@@ -95,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        Log.i(TAG,"check3");
                     }
                 });
 
