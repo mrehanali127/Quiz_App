@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
      ArrayList<Quiz> quizzes=new ArrayList<>();
      RecyclerView recyclerView;
     FloatingActionButton btndatepicker;
+    DrawerLayout mainDrawer;
+    NavigationView navigation;
      private FirebaseFirestore db;
      public String TAG="Rehan";
 
@@ -112,8 +116,30 @@ public class MainActivity extends AppCompatActivity {
     // Setup Drawer on left side
     public void setUpDrawerLayout(){
         setSupportActionBar(findViewById(R.id.AppBar));
+        navigation=findViewById(R.id.NavView);
+        mainDrawer=findViewById(R.id.MainDrawer);
         drawerToggle= new ActionBarDrawerToggle(this,findViewById(R.id.MainDrawer),R.string.app_name,R.string.app_name);
         drawerToggle.syncState();
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item.setChecked(true);
+                int Id=item.getItemId();
+                if (Id == R.id.btnProfile) {
+                    Log.d("Rehan","chek1");
+                    //navigation.getMenu().getItem(0).setChecked(true);
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(intent);
+                }
+                Log.d("Rehan","check2");
+                mainDrawer.closeDrawers();
+                return true;
+            }
+
+        });
+
+
+
     }
 
 

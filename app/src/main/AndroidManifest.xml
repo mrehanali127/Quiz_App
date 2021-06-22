@@ -11,12 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
-        <activity android:name=".activities.QuestionActivity">
-        </activity>
-        <activity android:name=".activities.SignupActivity"></activity>
-        <activity android:name=".activities.LoginActivity"></activity>
-        <activity android:name=".activities.IntroPage">
-        </activity>
+        <activity android:name=".activities.ProfileActivity"></activity>
+        <activity android:name=".activities.QuestionActivity"></activity>
+        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.IntroPage"></activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
